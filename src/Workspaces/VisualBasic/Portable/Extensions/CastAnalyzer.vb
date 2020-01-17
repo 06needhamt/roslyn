@@ -311,6 +311,10 @@ Namespace Microsoft.CodeAnalysis.VisualBasic.Extensions
                         Return Not IsRequiredWideningNumericConversion(castExpressionType, castType)
                     End If
 
+                    If castToOuterType.IsIdentity And Not expressionToCastType.IsNumeric Then
+                        Return False
+                    End If
+
                     Return True
                 End If
 
